@@ -1,0 +1,125 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <title> World Tour China, Inc.- Tours of Scotland</title>
+  <!-- loading jQuery from a CDN (Google) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  </script>
+  
+    <script type="text/javascript">
+        function runjQuery0(); {
+      //let's communicate with the database via jQuery
+      $.ajax({
+        //we need parameters to communicate
+        url: "tourList.php",
+        data: "progCode=" + 0, //progCode=0 so listTitles.php create proper SQLselect
+        dataType: "text",
+        success: function(serverdata) {
+          document.getElementById("displayhere").innerHTML = serverdata;
+        }
+      });
+
+        }
+    //end of runjQuery0()
+    
+            function runjQuery()
+            {
+                //reading the selected college
+                var selectedTour = document.getElementById("tourList").value;
+                
+                //connecting to the database and pass this selectedCollege
+                $.ajax(
+                {
+                    //to connect we need parameters
+                    url: "getTour.php",
+                    data: "tourKey="+ selectedTour,
+                    dataType: "text",
+                    success: function(serverdata)
+                    {
+                        //calling a function to display a map for the address given by serverdata
+                        document.getElementById("displayhere").innerHTML=serverdata;
+                        
+                    }
+                });
+            }//end of runjQuery()
+
+    </script>
+    
+    <style>
+      html {
+      background: url(background.jpg) no-repeat center center fixed;
+     background-size: cover;
+     background-repeat: no-repeat;
+    background-position: center top; 
+     
+         }
+
+     .a {
+
+        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        color: black;
+        background-color: white;
+        margin: 50px;
+        padding: 20px;
+        width:300px;
+        margin-right:auto;
+        margin-left:auto;
+      }
+      
+      .b {
+        font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        color: black;
+        background-color: grey;
+        margin: 50px;
+        padding: 20px;
+        width:300px;
+        margin-right:auto;
+        margin-left:auto;
+      }
+
+      h1 {
+       font-family: Verdana, Geneva, sans-serif;
+         }
+
+
+      table {
+       border: none;
+             }
+
+     th,
+     td {
+       border: none;
+      background-color: #dddddd;
+      padding: 5px;
+      width: 100px;
+         }
+    </style>
+       
+            
+</head>
+    <body>
+<h1 style = "font-size:60px; color:#89d0ff;  text-align:center; font-style: italic; line-height:50px;">World Tour China, Inc.</h1>
+
+       <h1 style="color:#c8a1b1; font-size:30px; text-align:center; font-style: italic; line-height:10px;">Scottish Summer Tours</h1>
+       
+       <div class = "a" >
+        <select id="tourList" onchange="runjQuery0()">
+            <option value="">Select a Tour</option>
+            <option value="All">All</option>
+            <option value="castles">Castles of Scotland</option>
+            <option value="hebrides">The Hebrides</option>
+            <option value="highlands">The Highlands</option>
+            <option value="lakes">The Lake District</option>
+
+        </select>
+       </div> 
+       
+        <br/>
+        <br/>
+        
+        <div id="displayhere" ></div>
+        
+    </body>
+</html>
