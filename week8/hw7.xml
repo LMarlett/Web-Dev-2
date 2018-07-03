@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="hwk8.xsl"?>
+    <museum-sales>
+        <art type="painting">
+            <title>Sunset1</title>
+            <pic>sunset1.jpg</pic>
+            <price>500000</price>
+            <qty>3</qty>
+        </art>
+        <art type="painting">
+            <title>Sunset2</title>
+            <pic>sunset2.jpeg</pic>
+            <price>600000</price>
+            <qty>5</qty>
+        </art>
+        <art type="painting">
+            <title>Sunset3</title>
+            <pic>sunset3.jpeg</pic>
+            <price>200000</price>
+            <qty>6</qty>
+        </art>
+        <art type="painting">
+            <title>Snow Flakes</title>
+            <pic>snowflake.jpeg</pic>
+            <price>800000</price>
+            <qty>7</qty>
+        </art>
+    </museum-sales>
